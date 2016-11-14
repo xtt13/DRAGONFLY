@@ -20,6 +20,7 @@ DRAGONFLY.MenuState = {
     this.buttons = [];
 
     this.levelcookies = false;
+    playerData.money = 0;
     //this.currentLevel = parseInt(document.cookie.replace(/(?:(?:^|.*;\s*)currentLevel\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
 
   },

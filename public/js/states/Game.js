@@ -1924,7 +1924,7 @@ if(this.gamepadConnected){
     playerData.health = 100;
     playerData.ammo = 500;
     playerData.defence = 0;
-    playerData.money = 0;
+    
 
     if(this.levelcookies){
       var cookieValue = parseInt(document.cookie.replace(/(?:(?:^|.*;\s*)currentLevel\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
