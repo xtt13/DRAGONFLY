@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+body {
+  margin: 0;
+  background: #000;
+  height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+}
+
+div.errors {
+  color: white;
+}
+
+.vignette {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+box-shadow: 0 0 50px rgba(0,0,0,1) inset;
+pointer-events: none
+}
+
+.site-wrapper {
+  height: 100%;;
+}
+
+.ajax-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
+}
+
+#dragonfly {
+
+  font-weight:100;
+  color: white;
+  padding: 2rem;
+  width: 500px;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#dragonfly a {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  f
+}
+
+.headline {
+  width: 1200px;
+  height: 250px;
+  background-image: url('../img/home/logo_alpha.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-indent: -10000px;
+  margin-top: 280px;
+}
+
+.container-site {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-bottom: 5px solid transparent;
+}
+
+
+/*START*/
+
+
+
+@keyframes flicker {
+  0% {
+    opacity: 0.5753167;
+  }
+  5% {
+    opacity: 0.61739877;
+  }
+  10% {
+    opacity: 0.81397524;
+  }
+  15% {
+    opacity: 0.91966786;
+  }
+  20% {
+    opacity: 0.10335068;
+  }
+  25% {
+    opacity: 0.47368816;
+  }
+  30% {
+    opacity: 0.27234666;
+  }
+  35% {
+    opacity: 0.40314851;
+  }
+  40% {
+    opacity: 0.41164215;
+  }
+  45% {
+    opacity: 0.01179952;
+  }
+  50% {
+    opacity: 0.74438005;
+  }
+  55% {
+    opacity: 0.67331313;
+  }
+  60% {
+    opacity: 0.96947399;
+  }
+  65% {
+    opacity: 0.53336182;
+  }
+  70% {
+    opacity: 0.46814556;
+  }
+  75% {
+    opacity: 0.85837362;
+  }
+  80% {
+    opacity: 0.913137;
+  }
+  85% {
+    opacity: 0.20869179;
+  }
+  90% {
+    opacity: 0.04622777;
+  }
+  95% {
+    opacity: 0.56338291;
+  }
+  100% {
+    opacity: 0.44598843;
+  }
+}
+.container {
+  width: 100%;
+  height: 100%;
+  /*background: #121010;*/
+  position: relative;
+  overflow: hidden;
+
+}
+.container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.container::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.container::after {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes turn-on {
+  0% {
+    transform: scale(1, 0.8) translate3d(0, 0, 0);
+    -webkit-filter: brightness(30);
+    filter: brightness(30);
+    opacity: 1;
+  }
+  3.5% {
+    transform: scale(1, 0.8) translate3d(0, 100%, 0);
+  }
+  3.6% {
+    transform: scale(1, 0.8) translate3d(0, -100%, 0);
+    opacity: 1;
+  }
+  9% {
+    transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+    -webkit-filter: brightness(30);
+    filter: brightness(30);
+    opacity: 0;
+  }
+  11% {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+    -webkit-filter: contrast(0) brightness(0);
+    filter: contrast(0) brightness(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+    -webkit-filter: contrast(1) brightness(1.2) saturate(1.3);
+    filter: contrast(1) brightness(1.2) saturate(1.3);
+    opacity: 1;
+  }
+}
+@keyframes turn-off {
+  0% {
+    transform: scale(1, 1.3) translate3d(0, 0, 0);
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.3, 0.001) translate3d(0, 0, 0);
+    -webkit-filter: brightness(10);
+    filter: brightness(10);
+  }
+  100% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: scale(0, 0.0001) translate3d(0, 0, 0);
+    -webkit-filter: brightness(50);
+    filter: brightness(50);
+  }
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.container > .screen {
+  animation: turn-off 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: forwards;
+}
+
+.container > .screen {
+  animation: turn-on 4s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes overlay-anim {
+  0% {
+    visibility: hidden;
+  }
+  20% {
+    visibility: hidden;
+  }
+  21% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+.overlay {
+  color: #00FF00;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 40px;
+  visibility: hidden;
+  pointer-events: none;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.overlay {
+  animation: overlay-anim 5s linear;
+  animation-fill-mode: forwards;
+}
+
+
+/*END*/
+
+
+
+#dragonfly a:hover,
+#dragonfly a:focus,
+#dragonfly a:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.3s;
+  animation-duration: .3s, 1.3s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+  color: white;
+  cursor: pointer;
+  padding-bottom: 5px;
+  border-bottom: 5px solid white;
+}
+
+
+
+
+
+
+
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+  }
+}
+
+.row {
+  width: 300px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 3px solid #FF00B8;
+}
+
+.row h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.inprogress {
+  color: #2a2a2a !important;
+}
+
+.row input {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  background-color: black;
+  width: 250px;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 3px solid white;
+
+}
+
+.row input:focus {
+  outline: none;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-btn {
+  margin-top: 60px;
+  transition-duration: 400ms;
+}
+
+.login-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.dashboard-wrapper {
+  width: 600px;
+  height: 780px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 3px solid #FF00B8;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dashboard-wrapper h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  margin-top: 0;
+}
+
+.values-wrapper div.row {
+  border: 3px solid white;
+  margin-bottom: 13px;
+  height: 50px;
+  width: 325px;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+
+.values-wrapper a {
+  display: block;
+  border: 3px solid white;
+  margin-bottom: 13px;
+  height: 50px;
+  width: 325px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 400ms;
+  background-color: black;
+}
+
+.values-wrapper a:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.link-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.money {
+  background-image: url('../img/dashboard/money.png');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+
+.ring {
+  background-image: url('../img/dashboard/ring.png');
+  background-repeat: no-repeat;
+  background-size: 32px 39px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+.health {
+  background-image: url('../img/dashboard/health.png');
+  background-repeat: no-repeat;
+  background-size: 34px 31px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+.shield {
+  background-image: url('../img/dashboard/defence.png');
+  background-repeat: no-repeat;
+  background-size: 30px 26px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+.frog {
+  background-image: url('../img/dashboard/frog.png');
+  background-repeat: no-repeat;
+  background-size: 30px 26px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+.hammer {
+  background-image: url('../img/dashboard/hammer.png');
+  background-repeat: no-repeat;
+  background-size: 30px 26px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+.gunman {
+  background-image: url('../img/dashboard/gunman.png');
+  background-repeat: no-repeat;
+  background-size: 30px 26px;
+  background-position: 20px center;
+
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+.site-error{
+  border: 3px solid #FF00B8;
+  color: black;
+  background-color: white;
+}
+
+.site-error h1 {
+  padding: 0;
+  padding: 0px 20px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
+  div{width:70%;}
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url('') #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
