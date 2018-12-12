@@ -23,6 +23,13 @@
 
 > This game was awarded with the **[SAE best student web project 2017](https://alumni.sae.edu/2017/12/12/dragonfly-best-web-project-sae-students-awards-2017/)**
 
+## Credits
+
+###Assets: 
+I got the game assets from the unreleased RTS game called Hard Vacuum (1993). Check them out! They are great!
+
+http://lunar.lostgarden.com/game_HardVacuum.htm
+
 
 ## Screenshots
 
