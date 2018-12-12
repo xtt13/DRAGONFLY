@@ -25,7 +25,7 @@
 
 ## Credits
 
-###Assets: 
+### Assets: 
 I got the game assets from the unreleased RTS game called Hard Vacuum (1993). Check them out! They are great!
 
 http://lunar.lostgarden.com/game_HardVacuum.htm
