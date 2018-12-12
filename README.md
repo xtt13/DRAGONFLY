@@ -2,7 +2,9 @@
 
 ![](http://www.michaeldorn.at/potf/dragonfly1.png)
 
->2D Pixelart Browsergame made with **Phaser v2.6.2**
+> 2D Pixelart Browsergame made with **Phaser v2.6.2**
+
+> Defeat all enemies and fight to the final boss
 
 ## Play Online
 
@@ -25,7 +27,7 @@
 
 ## Credits
 
-### Assets: 
+###Assets: 
 I got the game assets from the unreleased RTS game called Hard Vacuum (1993). Check them out! They are great!
 
 http://lunar.lostgarden.com/game_HardVacuum.htm
